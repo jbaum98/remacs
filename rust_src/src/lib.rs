@@ -19,6 +19,7 @@ mod strings;
 mod symbols;
 mod globals;
 mod character;
+mod alloc;
 
 use lisp::LispSubr;
 
@@ -55,6 +56,7 @@ pub extern "C" fn rust_init_syms() {
         defsubr(&*lists::Satom);
         defsubr(&*lists::Slistp);
         defsubr(&*lists::Snlistp);
+        defsubr(&*lists::Scons);
         defsubr(&*math::Smod);
         defsubr(&*math::Splus);
         defsubr(&*math::Sminus);
