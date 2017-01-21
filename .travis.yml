@@ -1,9 +1,12 @@
+dist: trusty
+sudo: false
+
 language: rust
 cache: cargo
 rust:
   - stable
-  - beta
-  - nightly
+  # - beta
+  # - nightly
 
 addons:
   apt:
@@ -28,6 +31,6 @@ notifications:
   fast_finish: true
   email: false
 
-matrix:
-  allow_failures:
-    - rust: nightly
+# matrix:
+#   allow_failures:
+#     - rust: nightly
