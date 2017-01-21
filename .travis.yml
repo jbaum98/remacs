@@ -5,6 +5,11 @@ rust:
   - beta
   - nightly
 
+addons:
+  apt:
+    packages:
+    - bzr
+
 env:
   # Ensure that we build without warnings.
   - CARGO_FLAGS="--features 'strict'"
