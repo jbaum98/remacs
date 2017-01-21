@@ -9,6 +9,7 @@ addons:
   apt:
     packages:
     - bzr
+    - makeinfo
 
 env:
   # Ensure that we build without warnings.
@@ -18,7 +19,7 @@ script:
   # Configure Emacs for building
   - ./autogen.sh
   # TODO: set up makeinfo on travis.
-  - ./configure --without-makeinfo --with-xpm=no --with-gif=no
+  - ./configure --with-xpm=no --with-gif=no
   - make -j 3
 
   - make check || echo 'make check failed'
