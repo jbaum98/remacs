@@ -12,7 +12,7 @@ addons:
   apt:
     packages:
     - bzr
-    - makeinfo
+    - texinfo
 
 env:
   # Ensure that we build without warnings.
