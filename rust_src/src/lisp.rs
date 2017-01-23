@@ -65,6 +65,9 @@ extern "C" {
     pub fn STRING_BYTES(s: *mut LispString) -> libc::ptrdiff_t;
     pub fn STRING_MULTIBYTE(a: LispObject) -> bool;
     pub fn SSDATA(string: LispObject) -> *mut libc::c_char;
+    pub fn SREF(string: LispObject, index: libc::ptrdiff_t) -> libc::c_char;
+    pub fn SYMBOL_NAME(sym: LispObject) -> LispObject;
+    pub fn SYMBOL_INTERNED_IN_INITIAL_OBARRAY_P(sym: LispObject) -> bool;
     pub static Qt: LispObject;
     pub static Qarith_error: LispObject;
     pub static Qnumber_or_marker_p: LispObject;
@@ -185,6 +188,14 @@ impl LispObject {
 impl LispObject {
     pub fn is_symbol(self) -> bool {
         self.get_type() == LispType::Lisp_Symbol
+    }
+
+    pub fn is_keyword(self) -> bool {
+        unsafe {
+            self.is_symbol()
+                && SREF(SYMBOL_NAME(self), 0) == (':' as libc::c_char)
+                && SYMBOL_INTERNED_IN_INITIAL_OBARRAY_P(self)
+        }
     }
 }
 

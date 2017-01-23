@@ -256,21 +256,6 @@ for example, (type-of 1) returns `integer'.  */)
     }
 }
 
-/* Define this in C to avoid unnecessarily consing up the symbol
-   name.  */
-DEFUN ("keywordp", Fkeywordp, Skeywordp, 1, 1, 0,
-       doc: /* Return t if OBJECT is a keyword.
-This means that it is a symbol with a print name beginning with `:'
-interned in the initial obarray.  */)
-  (Lisp_Object object)
-{
-  if (SYMBOLP (object)
-      && SREF (SYMBOL_NAME (object), 0) == ':'
-      && SYMBOL_INTERNED_IN_INITIAL_OBARRAY_P (object))
-    return Qt;
-  return Qnil;
-}
-
 DEFUN ("vectorp", Fvectorp, Svectorp, 1, 1, 0,
        doc: /* Return t if OBJECT is a vector.  */)
   (Lisp_Object object)
