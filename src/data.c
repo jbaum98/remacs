@@ -3161,6 +3161,7 @@ syms_of_data (void)
   DEFSYM (Qtext_read_only, "text-read-only");
   DEFSYM (Qmark_inactive, "mark-inactive");
 
+  DEFSYM (Qkeywordp, "keywordp");
   DEFSYM (Qlistp, "listp");
   DEFSYM (Qconsp, "consp");
   DEFSYM (Qsymbolp, "symbolp");
