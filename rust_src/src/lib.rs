@@ -8,8 +8,8 @@ extern crate lazy_static;
 
 extern crate libc;
 
-mod keywords;
 mod lisp;
+mod keywords;
 mod lists;
 mod marker;
 mod eval;
